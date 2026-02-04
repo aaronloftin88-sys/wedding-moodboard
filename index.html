@@ -179,8 +179,11 @@
     </div>
 
     <script>
-        const VALID_USERNAME = 'kelly';
-        const VALID_PASSWORD = 'loftin';
+        // Dual login system
+        const ADMIN_USERNAME = 'kelly';
+        const ADMIN_PASSWORD = 'lofton';
+        const GUEST_USERNAME = 'your';
+        const GUEST_PASSWORD = 'family';
 
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -189,10 +192,15 @@
             const password = document.getElementById('password').value.toLowerCase().trim();
             const errorMsg = document.getElementById('errorMsg');
 
-            if (username === VALID_USERNAME && password === VALID_PASSWORD) {
-                // Store auth in session
+            if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+                // Admin login
                 sessionStorage.setItem('authenticated', 'true');
-                // Redirect to mood board
+                sessionStorage.setItem('userRole', 'admin');
+                window.location.href = 'mood-board.html';
+            } else if (username === GUEST_USERNAME && password === GUEST_PASSWORD) {
+                // Guest login (read-only)
+                sessionStorage.setItem('authenticated', 'true');
+                sessionStorage.setItem('userRole', 'guest');
                 window.location.href = 'mood-board.html';
             } else {
                 errorMsg.classList.add('show');

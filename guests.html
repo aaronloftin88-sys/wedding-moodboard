@@ -357,8 +357,16 @@
             box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
         }
 
-        .custom-checkbox:hover {
+        .custom-checkbox:hover:not(.readonly) {
             border-color: var(--copper);
+        }
+
+        .custom-checkbox.readonly {
+            cursor: default;
+        }
+
+        .rsvp-status.readonly {
+            cursor: default;
         }
 
         .custom-checkbox.checked {
@@ -587,11 +595,12 @@
             <table class="guest-table">
                 <thead>
                     <tr>
+                        <th class="center" style="width: 50px;">#</th>
                         <th>Guest Name</th>
                         <th class="center">Save the Date</th>
                         <th class="center">Invitation</th>
                         <th class="center">RSVP</th>
-                        <th class="center">Actions</th>
+                        <th class="center actions-col">Actions</th>
                     </tr>
                 </thead>
                 <tbody id="guestTableBody">
@@ -612,6 +621,10 @@
     </footer>
 
     <script>
+        // Role-based access control
+        const userRole = sessionStorage.getItem('userRole') || 'guest';
+        const isAdmin = userRole === 'admin';
+
         // Guest data structure
         let guests = [];
 
@@ -806,29 +819,33 @@
 
             emptyState.style.display = 'none';
 
-            tbody.innerHTML = guestsToRender.map(guest => `
+            tbody.innerHTML = guestsToRender.map((guest, index) => `
                 <tr>
+                    <td class="checkbox-cell" style="color: #999; font-size: 0.85rem;">${index + 1}</td>
                     <td>
                         <div class="guest-name">${escapeHtml(guest.name)}${guest.plusOne ? ' (+1)' : ''}</div>
                         ${guest.group ? `<div class="guest-group">${escapeHtml(guest.group)}</div>` : ''}
                     </td>
                     <td class="checkbox-cell">
-                        <div class="custom-checkbox ${guest.saveTheDate ? 'checked' : ''}"
-                             onclick="toggleCheck(${guest.id}, 'saveTheDate')"></div>
+                        <div class="custom-checkbox ${guest.saveTheDate ? 'checked' : ''} ${!isAdmin ? 'readonly' : ''}"
+                             ${isAdmin ? `onclick="toggleCheck(${guest.id}, 'saveTheDate')"` : ''}></div>
                     </td>
                     <td class="checkbox-cell">
-                        <div class="custom-checkbox ${guest.invitation ? 'checked' : ''}"
-                             onclick="toggleCheck(${guest.id}, 'invitation')"></div>
+                        <div class="custom-checkbox ${guest.invitation ? 'checked' : ''} ${!isAdmin ? 'readonly' : ''}"
+                             ${isAdmin ? `onclick="toggleCheck(${guest.id}, 'invitation')"` : ''}></div>
                     </td>
                     <td class="checkbox-cell">
-                        <span class="rsvp-status rsvp-${guest.rsvp}" onclick="cycleRsvp(${guest.id})" style="cursor: pointer;">
+                        <span class="rsvp-status rsvp-${guest.rsvp} ${!isAdmin ? 'readonly' : ''}"
+                              ${isAdmin ? `onclick="cycleRsvp(${guest.id})" style="cursor: pointer;"` : ''}>
                             ${guest.rsvp === 'pending' ? 'Pending' : guest.rsvp === 'yes' ? 'Attending' : 'Declined'}
                         </span>
                     </td>
-                    <td>
+                    <td class="actions-col">
+                        ${isAdmin ? `
                         <div class="row-actions">
                             <button class="row-btn delete" onclick="deleteGuest(${guest.id})" title="Remove">✕</button>
                         </div>
+                        ` : ''}
                     </td>
                 </tr>
             `).join('');
@@ -891,6 +908,18 @@
 
         // Initialize
         loadGuests();
+
+        // Hide admin-only controls for guest users
+        if (!isAdmin) {
+            // Hide Add Guest button
+            const addGuestBtn = document.querySelector('.btn-primary[onclick="toggleAddForm()"]');
+            if (addGuestBtn) addGuestBtn.style.display = 'none';
+
+            // Hide Actions column header
+            document.querySelectorAll('.actions-col').forEach(el => {
+                el.style.display = 'none';
+            });
+        }
     </script>
 
 </body>
