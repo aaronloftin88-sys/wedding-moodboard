@@ -1,0 +1,2383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carolina Woodland Wedding | Visual Mood Board</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --copper: #B87333;
+            --copper-light: #D4956A;
+            --burgundy: #800020;
+            --burgundy-light: #A0324F;
+            --navy: #1B2838;
+            --navy-light: #2C3E50;
+            --black: #2C2C2C;
+            --cream: #FDF8F3;
+            --cream-dark: #F5EDE4;
+            --sage: #9CAF88;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            color: var(--black);
+            background: var(--cream);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .animate-delay-1 { animation-delay: 0.1s; }
+        .animate-delay-2 { animation-delay: 0.2s; }
+        .animate-delay-3 { animation-delay: 0.3s; }
+        .animate-delay-4 { animation-delay: 0.4s; }
+        .animate-delay-5 { animation-delay: 0.5s; }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--cream);
+            padding: 100px 20px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 5px;
+            letter-spacing: 3px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero .wedding-date {
+            font-size: 1.4rem;
+            color: var(--copper-light);
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero .tagline {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            margin-bottom: 35px;
+            font-style: italic;
+            font-family: 'Cormorant Garamond', serif;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        /* Countdown Timer */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .countdown-item {
+            text-align: center;
+            min-width: 80px;
+        }
+
+        .countdown-number {
+            font-size: 2.8rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            color: var(--copper-light);
+            line-height: 1;
+            display: block;
+        }
+
+        .countdown-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.7;
+            margin-top: 5px;
+        }
+
+        .countdown-divider {
+            font-size: 2rem;
+            color: var(--copper-light);
+            opacity: 0.4;
+            align-self: flex-start;
+            padding-top: 8px;
+        }
+
+        /* Guest count badge */
+        .guest-badge {
+            display: inline-block;
+            background: rgba(184, 115, 51, 0.2);
+            border: 1px solid var(--copper-light);
+            color: var(--copper-light);
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            margin-top: 20px;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        /* Color Palette */
+        .color-palette {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .color-swatch {
+            text-align: center;
+        }
+
+        .color-swatch .swatch {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            border: 3px solid rgba(255,255,255,0.3);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .color-swatch .label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        /* Navigation */
+        .nav {
+            background: var(--cream-dark);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            color: var(--navy);
+            text-decoration: none;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: var(--copper);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--cream-dark);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--burgundy);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--navy);
+            margin: 30px 0 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--copper-light);
+            display: inline-block;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            color: var(--copper);
+            margin: 20px 0 10px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        /* Vision Quote */
+        .vision-quote {
+            background: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-light) 100%);
+            color: var(--cream);
+            padding: 40px;
+            border-radius: 8px;
+            margin: 30px 0;
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--copper);
+        }
+
+        .card h4 {
+            margin-top: 0;
+            color: var(--navy);
+        }
+
+        .card.burgundy-border {
+            border-left-color: var(--burgundy);
+        }
+
+        .card.navy-border {
+            border-left-color: var(--navy);
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        th {
+            background: var(--navy);
+            color: var(--cream);
+            padding: 15px;
+            text-align: left;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid var(--cream-dark);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background: var(--cream);
+        }
+
+        /* Lists */
+        ul {
+            margin: 15px 0 15px 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* Accent Box */
+        .accent-box {
+            background: var(--cream-dark);
+            border-radius: 8px;
+            padding: 25px;
+            margin: 25px 0;
+            border: 1px solid var(--copper-light);
+        }
+
+        .accent-box h4 {
+            margin-top: 0;
+        }
+
+        /* Diagram */
+        .diagram {
+            background: var(--navy);
+            color: var(--cream);
+            padding: 30px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            overflow-x: auto;
+            margin: 25px 0;
+        }
+
+        /* Keywords */
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .keyword {
+            background: white;
+            color: var(--navy);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        /* Budget Tags */
+        .budget-tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .budget-low {
+            background: var(--sage);
+            color: white;
+        }
+
+        .budget-mid {
+            background: var(--copper);
+            color: white;
+        }
+
+        .budget-high {
+            background: var(--burgundy);
+            color: white;
+        }
+
+        /* Links Section */
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .link-card {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .link-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        }
+
+        .link-card a {
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: 400;
+        }
+
+        .link-card a:hover {
+            color: var(--copper);
+        }
+
+        .link-card .source {
+            font-size: 0.75rem;
+            color: var(--copper);
+            margin-top: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: var(--cream);
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Todo Checklist Styles */
+        .todo-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin: 30px 0;
+        }
+
+        .todo-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .todo-header h3 {
+            margin: 0;
+            border: none;
+            padding: 0;
+        }
+
+        .todo-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .todo-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .todo-btn.download {
+            background: var(--copper);
+            color: white;
+        }
+
+        .todo-btn.download:hover {
+            background: var(--copper-light);
+            transform: translateY(-2px);
+        }
+
+        .todo-btn.reset {
+            background: transparent;
+            color: var(--navy);
+            border: 1px solid var(--navy);
+        }
+
+        .todo-btn.reset:hover {
+            background: var(--navy);
+            color: white;
+        }
+
+        .todo-category {
+            margin-bottom: 25px;
+        }
+
+        .todo-category h4 {
+            color: var(--burgundy);
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--cream-dark);
+        }
+
+        .todo-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--cream);
+            transition: background 0.2s;
+        }
+
+        .todo-item:last-child {
+            border-bottom: none;
+        }
+
+        .todo-item:hover {
+            background: var(--cream);
+            margin: 0 -15px;
+            padding: 12px 15px;
+        }
+
+        .todo-checkbox {
+            width: 22px;
+            height: 22px;
+            min-width: 22px;
+            border: 2px solid var(--copper);
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            margin-top: 2px;
+        }
+
+        .todo-checkbox.checked {
+            background: var(--copper);
+        }
+
+        .todo-checkbox.checked::after {
+            content: '';
+            width: 6px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            margin-bottom: 2px;
+        }
+
+        .todo-text {
+            flex: 1;
+            line-height: 1.5;
+        }
+
+        .todo-text.completed {
+            text-decoration: line-through;
+            color: #999;
+        }
+
+        .todo-progress {
+            background: var(--cream-dark);
+            border-radius: 10px;
+            height: 8px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .todo-progress-bar {
+            background: linear-gradient(90deg, var(--copper) 0%, var(--burgundy) 100%);
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+
+        .todo-progress-text {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: var(--navy);
+        }
+
+        /* Timeline Milestone Styles */
+        .timeline-milestone {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 40px;
+        }
+
+        .timeline-milestone::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: -40px;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--copper), var(--burgundy));
+        }
+
+        .timeline-milestone:last-child::before {
+            bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            background: var(--copper);
+            border-radius: 50%;
+            border: 3px solid var(--cream);
+            box-shadow: 0 0 0 2px var(--copper);
+        }
+
+        .timeline-milestone.active .timeline-dot {
+            animation: pulse 2s infinite;
+            background: var(--burgundy);
+            box-shadow: 0 0 0 2px var(--burgundy);
+        }
+
+        .milestone-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .milestone-title {
+            font-size: 1.2rem;
+            color: var(--navy);
+            margin: 0;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .milestone-date {
+            font-size: 0.75rem;
+            color: var(--copper);
+            background: rgba(184, 115, 51, 0.1);
+            padding: 4px 12px;
+            border-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Budget Section Styles */
+        .budget-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .budget-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .budget-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--cream-dark);
+        }
+
+        .budget-item:last-child {
+            border-bottom: none;
+        }
+
+        .budget-item-name {
+            font-weight: 400;
+        }
+
+        .budget-item-cost {
+            color: var(--copper);
+            font-weight: 500;
+        }
+
+        .budget-status {
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .budget-status.booked {
+            background: var(--sage);
+            color: white;
+        }
+
+        .budget-status.pending {
+            background: var(--cream-dark);
+            color: var(--navy);
+        }
+
+        .budget-total {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: white;
+            padding: 20px 25px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .budget-total-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .budget-total-amount {
+            font-size: 1.8rem;
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--copper-light);
+        }
+
+        /* Day-of Timeline Styles */
+        .dayof-timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .dayof-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--cream-dark);
+            transition: background 0.2s;
+        }
+
+        .dayof-item:hover {
+            background: var(--cream);
+            margin: 0 -15px;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .dayof-time {
+            min-width: 80px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--copper);
+            font-weight: 600;
+        }
+
+        .dayof-event {
+            flex: 1;
+        }
+
+        .dayof-item.highlight {
+            background: linear-gradient(90deg, rgba(184, 115, 51, 0.1), transparent);
+            border-left: 3px solid var(--copper);
+            margin-left: -3px;
+            padding-left: 17px;
+        }
+
+        /* Vendor Tracker Styles */
+        .vendor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .vendor-card {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            border-left: 3px solid var(--cream-dark);
+            transition: all 0.3s;
+        }
+
+        .vendor-card:hover {
+            border-left-color: var(--copper);
+            transform: translateX(3px);
+        }
+
+        .vendor-card.booked {
+            border-left-color: var(--sage);
+        }
+
+        .vendor-type {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--copper);
+            margin-bottom: 5px;
+        }
+
+        .vendor-name {
+            font-weight: 400;
+            color: var(--navy);
+        }
+
+        .vendor-cost {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        /* Section dividers */
+        .section-divider {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            display: inline-block;
+            width: 50px;
+            height: 1px;
+            background: var(--copper);
+            vertical-align: middle;
+            margin: 0 15px;
+        }
+
+        .section-divider span {
+            color: var(--copper);
+            font-size: 1.2rem;
+        }
+
+        /* Hover card effect */
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+
+        /* Inspiration Gallery Styles */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 40px 15px 15px;
+            color: white;
+        }
+
+        .gallery-item .overlay h4 {
+            color: var(--copper-light);
+            font-size: 1rem;
+            margin-bottom: 3px;
+        }
+
+        .gallery-item .overlay p {
+            font-size: 0.75rem;
+            opacity: 0.8;
+            margin: 0;
+        }
+
+        .gallery-large {
+            grid-column: span 2;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-large {
+                grid-column: span 1;
+            }
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .lightbox-caption {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-align: center;
+        }
+
+        .lightbox-caption h4 {
+            color: var(--copper-light);
+            margin-bottom: 5px;
+        }
+
+        .photo-credit {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.6);
+            margin-top: 10px;
+        }
+
+        .photo-credit a {
+            color: var(--copper-light);
+        }
+
+        /* Print Styles */
+        @media print {
+            .nav {
+                display: none;
+            }
+
+            .hero {
+                padding: 40px 20px;
+            }
+
+            section {
+                page-break-inside: avoid;
+            }
+
+            .card, .link-card {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .wedding-date {
+                font-size: 1.1rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .nav ul {
+                gap: 12px;
+            }
+
+            .nav a {
+                font-size: 0.7rem;
+            }
+
+            .color-swatch .swatch {
+                width: 50px;
+                height: 50px;
+            }
+
+            .countdown {
+                gap: 15px;
+            }
+
+            .countdown-number {
+                font-size: 2rem;
+            }
+
+            .countdown-divider {
+                font-size: 1.5rem;
+            }
+
+            .budget-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .budget-item > div:last-child {
+                text-align: left;
+            }
+
+            .dayof-item {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .dayof-time {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <header class="hero">
+        <h1>Aaron & Kelly</h1>
+        <p class="wedding-date">September 19, 2026</p>
+        <p class="tagline">A Rustic Woodland Celebration in the Carolina Fields</p>
+
+        <div class="countdown" id="countdown">
+            <div class="countdown-item">
+                <span class="countdown-number" id="days">---</span>
+                <span class="countdown-label">Days</span>
+            </div>
+            <span class="countdown-divider">:</span>
+            <div class="countdown-item">
+                <span class="countdown-number" id="hours">--</span>
+                <span class="countdown-label">Hours</span>
+            </div>
+            <span class="countdown-divider">:</span>
+            <div class="countdown-item">
+                <span class="countdown-number" id="minutes">--</span>
+                <span class="countdown-label">Minutes</span>
+            </div>
+            <span class="countdown-divider">:</span>
+            <div class="countdown-item">
+                <span class="countdown-number" id="seconds">--</span>
+                <span class="countdown-label">Seconds</span>
+            </div>
+        </div>
+
+        <a href="guests.html" class="guest-badge" style="text-decoration: none; cursor: pointer;">~100 Guests</a>
+
+        <div class="color-palette">
+            <div class="color-swatch">
+                <div class="swatch" style="background: #B87333;"></div>
+                <div class="label">Copper</div>
+            </div>
+            <div class="color-swatch">
+                <div class="swatch" style="background: #800020;"></div>
+                <div class="label">Burgundy</div>
+            </div>
+            <div class="color-swatch">
+                <div class="swatch" style="background: #1B2838;"></div>
+                <div class="label">Navy</div>
+            </div>
+            <div class="color-swatch">
+                <div class="swatch" style="background: #2C2C2C;"></div>
+                <div class="label">Black</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <ul>
+            <li><a href="#inspiration">Inspiration</a></li>
+            <li><a href="#vision">Vision</a></li>
+            <li><a href="#ceremony">Ceremony</a></li>
+            <li><a href="#decor">Decor</a></li>
+            <li><a href="#budget">Budget</a></li>
+            <li><a href="#timeline">Day-Of</a></li>
+            <li><a href="#checklist">Checklist</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+
+        <!-- Inspiration Gallery Section -->
+        <section id="inspiration">
+            <h2>Visual Inspiration</h2>
+            <p style="text-align: center; margin-bottom: 10px;">Click any image to view larger. All photos free via Unsplash.</p>
+
+            <div class="gallery-grid">
+                <!-- Woodland Ceremony -->
+                <div class="gallery-item gallery-large" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&fit=crop&q=80"
+                         alt="Outdoor woodland wedding ceremony with wooden arch"
+                         data-full="https://images.unsplash.com/photo-1519741497674-611481863552?w=1600&q=90">
+                    <div class="overlay">
+                        <h4>Woodland Ceremony</h4>
+                        <p>Natural arch with forest backdrop</p>
+                    </div>
+                </div>
+
+                <!-- Rustic Table Setting -->
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1478146059778-26028b07395a?w=600&fit=crop&q=80"
+                         alt="Rustic wedding table setting with candles"
+                         data-full="https://images.unsplash.com/photo-1478146059778-26028b07395a?w=1600&q=90">
+                    <div class="overlay">
+                        <h4>Rustic Table</h4>
+                        <p>Warm candlelit reception</p>
+                    </div>
+                </div>
+
+                <!-- Wedding Bouquet -->
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1522057384400-681b421cfebc?w=600&fit=crop&q=80"
+                         alt="Burgundy and blush wedding bouquet"
+                         data-full="https://images.unsplash.com/photo-1522057384400-681b421cfebc?w=1600&q=90">
+                    <div class="overlay">
+                        <h4>Bridal Bouquet</h4>
+                        <p>Deep burgundy roses</p>
+                    </div>
+                </div>
+
+                <!-- String Lights -->
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?w=600&fit=crop&q=80"
+                         alt="Outdoor wedding with string lights at dusk"
+                         data-full="https://images.unsplash.com/photo-1529636798458-92182e662485?w=1600&q=90">
+                    <div class="overlay">
+                        <h4>String Lights</h4>
+                        <p>Magical evening ambiance</p>
+                    </div>
+                </div>
+
+                <!-- Outdoor Ceremony Aisle -->
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&fit=crop&q=80"
+                         alt="Outdoor wedding ceremony with chairs and floral aisle"
+                         data-full="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1600&q=90">
+                    <div class="overlay">
+                        <h4>Ceremony Aisle</h4>
+                        <p>Outdoor seating setup</p>
+                    </div>
+                </div>
+
+                <!-- Lanterns -->
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1510076857177-7470076d4098?w=600&fit=crop&q=80"
+                         alt="Vintage lanterns with warm lighting"
+                         data-full="https://images.unsplash.com/photo-1510076857177-7470076d4098?w=1600&q=90">
+                    <div class="overlay">
+                        <h4>Lanterns</h4>
+                        <p>Warm copper glow</p>
+                    </div>
+                </div>
+
+                <!-- Wildflower Arrangement -->
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=600&fit=crop&q=80"
+                         alt="Wildflower arrangement in rustic vase"
+                         data-full="https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=1600&q=90">
+                    <div class="overlay">
+                        <h4>Wildflowers</h4>
+                        <p>Natural meadow blooms</p>
+                    </div>
+                </div>
+
+                <!-- Wooden Details -->
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&fit=crop&q=80"
+                         alt="Wooden wedding details and decor"
+                         data-full="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600&q=90">
+                    <div class="overlay">
+                        <h4>Wood Elements</h4>
+                        <p>Natural wood textures</p>
+                    </div>
+                </div>
+
+                <!-- Evening Reception -->
+                <div class="gallery-item gallery-large" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&fit=crop&q=80"
+                         alt="Evening outdoor wedding reception with lights"
+                         data-full="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=1600&q=90">
+                    <div class="overlay">
+                        <h4>Evening Reception</h4>
+                        <p>Twinkling lights at dusk</p>
+                    </div>
+                </div>
+
+                <!-- Navy & Copper Details -->
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1550005809-91ad75fb315f?w=600&fit=crop&q=80"
+                         alt="Elegant table setting with navy and metallic accents"
+                         data-full="https://images.unsplash.com/photo-1550005809-91ad75fb315f?w=1600&q=90">
+                    <div class="overlay">
+                        <h4>Navy Accents</h4>
+                        <p>Elegant table details</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="photo-credit" style="text-align: center; margin-top: 20px;">
+                Photos courtesy of <a href="https://unsplash.com" target="_blank">Unsplash</a> — free for commercial use
+            </p>
+        </section>
+
+        <!-- Vision Section -->
+        <section id="vision">
+            <h2>The Vision</h2>
+
+            <div class="vision-quote">
+                Imagine walking through a sun-dappled field toward a treeline at golden hour. Warm copper lanterns flicker along a path of vintage rugs. Your guests sit on handmade wooden benches, wrapped in the comfort of soft throws. Deep burgundy florals contrast against the wild greenery. It feels like coming home — relaxed, beautiful, and authentically you.
+            </div>
+
+            <div class="keywords">
+                <span class="keyword">Warm not cold</span>
+                <span class="keyword">Gathered not bought</span>
+                <span class="keyword">Cozy not formal</span>
+                <span class="keyword">Natural not overdone</span>
+                <span class="keyword">Intentional not expensive</span>
+            </div>
+
+            <h3>The Non-Negotiables</h3>
+            <ul>
+                <li>Handmade wooden bench seating</li>
+                <li>Vintage/artisanal rug aisle runner</li>
+                <li>Natural woodland backdrop</li>
+                <li>Copper + burgundy + navy color story</li>
+                <li>Twinkle lights at dusk</li>
+            </ul>
+        </section>
+
+        <!-- Ceremony Section -->
+        <section id="ceremony">
+            <h2>Ceremony Setting</h2>
+            <p>A natural clearing where open meadow meets woodland. Guests seated on handmade wooden benches facing the treeline. Dappled afternoon light filtering through leaves. The forest serves as your natural backdrop.</p>
+
+            <h3>Backdrop & Arch Ideas</h3>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Natural Branch Arch</h4>
+                    <span class="budget-tag budget-low">$</span>
+                    <p>Foraged branches & twigs woven together, asymmetrical greenery + burgundy florals draped on one side</p>
+                </div>
+                <div class="card burgundy-border">
+                    <h4>Simple Wood Frame</h4>
+                    <span class="budget-tag budget-mid">$$</span>
+                    <p>DIY rectangular cedar frame (2x4 lumber), stained dark. Drape with eucalyptus & copper geometric hangings</p>
+                </div>
+                <div class="card navy-border">
+                    <h4>No Arch - Tree Backdrop</h4>
+                    <span class="budget-tag budget-low">$</span>
+                    <p>Use two prominent trees at forest edge, string copper lanterns between them, hang macramé or fabric</p>
+                </div>
+                <div class="card">
+                    <h4>Circular Hoop</h4>
+                    <span class="budget-tag budget-mid">$$</span>
+                    <p>Large copper or wood hoop arch, half-covered in burgundy dahlias, roses, and trailing greenery</p>
+                </div>
+            </div>
+
+            <div class="accent-box">
+                <h4>Pro Tip</h4>
+                <p>The treeline IS your backdrop. Keep the arch simple so nature does the heavy lifting.</p>
+            </div>
+
+            <h3>Ceremony Layout</h3>
+            <div class="diagram">
+                            🌲🌲🌲 TREELINE / FOREST EDGE 🌲🌲🌲
+
+                                 ┌─────────────────┐
+                                 │   SIMPLE ARCH   │
+                                 │  or TREE FRAME  │
+                                 └─────────────────┘
+
+        ════════════════════════════════════════════════════════
+                        VINTAGE RUG AISLE RUNNER
+                        (layered mismatched rugs)
+        ════════════════════════════════════════════════════════
+
+        ┌──────────┐                              ┌──────────┐
+        │ BENCH 1  │        🏮 lantern           │ BENCH 1  │
+        └──────────┘                              └──────────┘
+        ┌──────────┐                              ┌──────────┐
+        │ BENCH 2  │        🏮 lantern           │ BENCH 2  │
+        └──────────┘                              └──────────┘
+        ┌──────────┐                              ┌──────────┐
+        │ BENCH 3  │        🏮 lantern           │ BENCH 3  │
+        └──────────┘                              └──────────┘
+
+                             OPEN FIELD / MEADOW
+            </div>
+        </section>
+
+        <!-- Seating Section -->
+        <section id="seating">
+            <h2>Handmade Wooden Bench Seating</h2>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Rustic Log Benches (DIY)</h4>
+                    <ul>
+                        <li>Use 3 tree trunk sections as bases (12" diameter)</li>
+                        <li>Lay a long plank or split log across the top</li>
+                        <li>Seal with water-based polyurethane</li>
+                        <li>Source: fallen trees, local sawmill, lumber yard scraps</li>
+                    </ul>
+                </div>
+                <div class="card burgundy-border">
+                    <h4>Farmhouse Plank Benches</h4>
+                    <ul>
+                        <li>Simple 2x10 or 2x12 planks on X-frame legs</li>
+                        <li>Sand smooth, stain in dark walnut or leave natural</li>
+                        <li>8ft bench seats ~4 guests</li>
+                    </ul>
+                </div>
+                <div class="card navy-border">
+                    <h4>Cedar/Reclaimed Wood</h4>
+                    <ul>
+                        <li>Family-made from scrap cedar (meaningful + budget-friendly)</li>
+                        <li>Can double as wedding favors for family members afterward</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Bench Accessories</h3>
+            <ul>
+                <li><strong>Cozy throws:</strong> Plaid or solid navy/burgundy blankets draped on bench ends for chilly evenings</li>
+                <li><strong>Greenery sprigs:</strong> Tie small eucalyptus bundles to bench ends with twine</li>
+                <li><strong>Programs:</strong> Place on each seat tied with copper ribbon</li>
+            </ul>
+        </section>
+
+        <!-- Aisle Section -->
+        <section id="aisle">
+            <h2>Artisanal Rug Aisle Runner</h2>
+            <p>A collected, "purposefully mismatched" runner of vintage rugs layered down the aisle. Bohemian but grounded. Warm, worn-in textiles against the green grass.</p>
+
+            <h3>Sourcing Strategy (Budget-Friendly)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Source</th>
+                        <th>Price Range</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Etsy vintage rugs</td>
+                        <td>$35-150 each</td>
+                        <td>Search "vintage runner rug" or "Turkish kilim runner"</td>
+                    </tr>
+                    <tr>
+                        <td>Facebook Marketplace</td>
+                        <td>$10-50</td>
+                        <td>Search "vintage rug" locally</td>
+                    </tr>
+                    <tr>
+                        <td>Thrift stores</td>
+                        <td>$5-25</td>
+                        <td>Check Habitat ReStore, Goodwill</td>
+                    </tr>
+                    <tr>
+                        <td>Rental companies</td>
+                        <td>$15-40/rug</td>
+                        <td>Many areas have boho wedding rental specialists</td>
+                    </tr>
+                    <tr>
+                        <td>Family heirlooms</td>
+                        <td>Free</td>
+                        <td>Borrow from relatives</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Color Guidelines for Rugs</h3>
+            <p>Look for rugs with ANY of these colors present:</p>
+            <ul>
+                <li>Deep reds / burgundy / rust</li>
+                <li>Navy blue / indigo</li>
+                <li>Copper / terracotta / burnt orange</li>
+                <li>Cream / ivory backgrounds</li>
+                <li>Black accents</li>
+            </ul>
+
+            <div class="accent-box">
+                <h4>Quantity Needed</h4>
+                <p>5-10 rugs depending on aisle length and rug sizes. Mix runners (2-3ft x 6-8ft) with smaller rectangles. Overlap rugs slightly. Vary sizes for organic feel. Secure edges with landscape staples if windy.</p>
+            </div>
+        </section>
+
+        <!-- Florals Section -->
+        <section id="florals">
+            <h2>Carolina Native & Seasonal Florals</h2>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Native to Carolina / Southeast</h4>
+                    <ul>
+                        <li>Black-eyed Susans (yellow with dark center)</li>
+                        <li>Asters (purple, blue, pink)</li>
+                        <li>Queen Anne's Lace (white, airy)</li>
+                        <li>Goldenrod (wild, textural)</li>
+                        <li>Native grasses and ferns</li>
+                    </ul>
+                </div>
+                <div class="card burgundy-border">
+                    <h4>Burgundy Options</h4>
+                    <ul>
+                        <li>Burgundy dahlias</li>
+                        <li>Deep red garden roses</li>
+                        <li>Burgundy scabiosa (pincushion flower)</li>
+                        <li>Dark red ranunculus</li>
+                        <li>Dried burgundy amaranth</li>
+                    </ul>
+                </div>
+                <div class="card navy-border">
+                    <h4>Texture & Greenery</h4>
+                    <ul>
+                        <li>Eucalyptus (silver dollar or seeded)</li>
+                        <li>Ferns (local, foraged)</li>
+                        <li>Ivy trails</li>
+                        <li>Dried grasses and wheat</li>
+                        <li>Rosemary and herbs</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Bouquet Style Guide</h3>
+            <div class="accent-box">
+                <h4>Bridal Bouquet Vision</h4>
+                <p><strong>Style:</strong> Loose, unstructured — "just gathered from the meadow" feel</p>
+                <ul>
+                    <li>3-5 burgundy roses</li>
+                    <li>Burgundy dahlias</li>
+                    <li>White wildflowers</li>
+                    <li>Trailing eucalyptus</li>
+                    <li>Dried grasses</li>
+                    <li>Fern fronds</li>
+                </ul>
+                <p><strong>Wrap:</strong> Natural twine or navy velvet ribbon</p>
+            </div>
+
+            <div class="accent-box">
+                <h4>DIY Tip</h4>
+                <p>Order wholesale from Blooms By The Box or local flower farms. Assemble bouquets day before with friends/family. Stick to 3-4 flower types max + greenery for cohesion.</p>
+            </div>
+        </section>
+
+        <!-- Decor Section -->
+        <section id="decor">
+            <h2>Copper, Black & Navy Decor Elements</h2>
+
+            <h3>Copper Accents</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Where to Use</th>
+                        <th>Source Ideas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Copper lanterns</td>
+                        <td>Line the aisle, hang from trees, centerpieces</td>
+                        <td>Target, HomeGoods, Amazon</td>
+                    </tr>
+                    <tr>
+                        <td>Copper mugs</td>
+                        <td>Drink display, cocktail hour</td>
+                        <td>Moscow mule mugs - Amazon, TJ Maxx</td>
+                    </tr>
+                    <tr>
+                        <td>Copper geometric shapes</td>
+                        <td>Hang from arch, table numbers</td>
+                        <td>Etsy, craft stores</td>
+                    </tr>
+                    <tr>
+                        <td>Copper wire fairy lights</td>
+                        <td>Wrap around centerpieces, arch</td>
+                        <td>Amazon, dollar stores</td>
+                    </tr>
+                    <tr>
+                        <td>Copper ribbon</td>
+                        <td>Bouquet wrap, chair ties</td>
+                        <td>Michaels, Joann</td>
+                    </tr>
+                    <tr>
+                        <td>Copper spray paint</td>
+                        <td>DIY frames, lanterns, votives</td>
+                        <td>Hardware store</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Navy Elements</h3>
+            <ul>
+                <li>Navy table runners on wood tables</li>
+                <li>Navy velvet ribbon on bouquets & programs</li>
+                <li>Navy taper candles in copper holders</li>
+                <li>Navy cloth napkins</li>
+                <li>Groomsmen navy suits</li>
+            </ul>
+
+            <h3>Black Grounding Elements</h3>
+            <ul>
+                <li>Black iron lanterns mixed with copper</li>
+                <li>Black chalkboard signs (welcome, seating chart)</li>
+                <li>Black frames for table numbers</li>
+                <li>Black taper candles (moody, elegant)</li>
+            </ul>
+
+            <h3>Lantern-Lined Aisle Pattern</h3>
+            <p>Alternate copper and black lanterns down the aisle. Use battery-operated candles for safety in a field setting.</p>
+        </section>
+
+        <!-- Tables Section -->
+        <section id="tables">
+            <h2>Table Settings & Centerpieces</h2>
+
+            <h3>Centerpiece Options by Budget</h3>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Simple & Beautiful</h4>
+                    <span class="budget-tag budget-low">$</span>
+                    <ul>
+                        <li>Wood slice base</li>
+                        <li>Mason jar wrapped in burlap or painted navy</li>
+                        <li>Baby's breath + one burgundy rose</li>
+                        <li>Copper wire fairy lights coiled around</li>
+                    </ul>
+                </div>
+                <div class="card burgundy-border">
+                    <h4>Elevated Rustic</h4>
+                    <span class="budget-tag budget-mid">$$</span>
+                    <ul>
+                        <li>Wooden box centerpiece (small crate)</li>
+                        <li>Mix of burgundy florals + greenery in mason jars</li>
+                        <li>Copper geometric terrarium with candle</li>
+                        <li>Navy taper candles in copper holders</li>
+                    </ul>
+                </div>
+                <div class="card navy-border">
+                    <h4>Lush but Attainable</h4>
+                    <span class="budget-tag budget-high">$$$</span>
+                    <ul>
+                        <li>Low wooden trough filled with florals</li>
+                        <li>Burgundy roses, dahlias, eucalyptus spilling out</li>
+                        <li>Copper lantern + navy pillar candles flanking</li>
+                        <li>Scattered copper votives</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Table Setting Vision</h3>
+            <div class="accent-box">
+                <p><strong>Base:</strong> Rustic wood farm table (no tablecloth - natural wood showing)</p>
+                <ul>
+                    <li>Navy table runner down the center</li>
+                    <li>Copper flatware</li>
+                    <li>Burgundy cloth napkins</li>
+                    <li>Wood slice charger plates</li>
+                    <li>Mason jar florals + lit copper lanterns</li>
+                </ul>
+            </div>
+
+            <h3>Lighting — The Magic Maker</h3>
+            <p><strong>What to Use:</strong></p>
+            <ul>
+                <li>Edison bulb string lights (warm, vintage)</li>
+                <li>Warm white fairy lights (copper wire)</li>
+                <li>Battery-operated candles throughout (safe for field)</li>
+            </ul>
+            <p><strong>Where to Hang:</strong></p>
+            <ul>
+                <li>Tree to tree over reception tables</li>
+                <li>Wrapped around ceremony arch</li>
+                <li>In mason jars as aisle markers</li>
+                <li>Draped in tent/canopy if using</li>
+            </ul>
+        </section>
+
+        <!-- Budget Section -->
+        <section id="budget">
+            <h2>Wedding Budget</h2>
+            <p style="text-align: center; margin-bottom: 30px;">Estimated costs for ~100 guests | Outdoor tent ceremony</p>
+
+            <div class="budget-card hover-lift">
+                <h3 style="color: var(--navy); margin-bottom: 20px; font-size: 1.3rem;">Vendor & Rental Costs</h3>
+
+                <div class="budget-item">
+                    <div>
+                        <span class="budget-item-name">Pole Tent (40x60)</span>
+                        <div style="font-size: 0.75rem; color: #666;">Fits 100 seated; includes setup/takedown</div>
+                    </div>
+                    <div style="text-align: right;">
+                        <span class="budget-item-cost">$800 - $1,200</span>
+                        <span class="budget-status pending">Pending</span>
+                    </div>
+                </div>
+
+                <div class="budget-item">
+                    <div>
+                        <span class="budget-item-name">Chairs (100)</span>
+                        <div style="font-size: 0.75rem; color: #666;">$1.50-$2.50 each; often bundled with tent</div>
+                    </div>
+                    <div style="text-align: right;">
+                        <span class="budget-item-cost">$150 - $250</span>
+                        <span class="budget-status pending">Pending</span>
+                    </div>
+                </div>
+
+                <div class="budget-item">
+                    <div>
+                        <span class="budget-item-name">Tables (12-15 round)</span>
+                        <div style="font-size: 0.75rem; color: #666;">60" rounds seat 8; $12-$20 each</div>
+                    </div>
+                    <div style="text-align: right;">
+                        <span class="budget-item-cost">$180 - $300</span>
+                        <span class="budget-status pending">Pending</span>
+                    </div>
+                </div>
+
+                <div class="budget-item">
+                    <div>
+                        <span class="budget-item-name">Photography</span>
+                        <div style="font-size: 0.75rem; color: #666;">CONFIRMED - Great value!</div>
+                    </div>
+                    <div style="text-align: right;">
+                        <span class="budget-item-cost">$1,200</span>
+                        <span class="budget-status booked">Booked</span>
+                    </div>
+                </div>
+
+                <div class="budget-item">
+                    <div>
+                        <span class="budget-item-name">DJ / Entertainment</span>
+                        <div style="font-size: 0.75rem; color: #666;">4-6 hours typical</div>
+                    </div>
+                    <div style="text-align: right;">
+                        <span class="budget-item-cost">$500 - $1,000</span>
+                        <span class="budget-status pending">Pending</span>
+                    </div>
+                </div>
+
+                <div class="budget-item">
+                    <div>
+                        <span class="budget-item-name">Food / Catering</span>
+                        <div style="font-size: 0.75rem; color: #666;">$20-$40/person; BBQ or buffet saves money</div>
+                    </div>
+                    <div style="text-align: right;">
+                        <span class="budget-item-cost">$2,000 - $4,000</span>
+                        <span class="budget-status pending">Pending</span>
+                    </div>
+                </div>
+
+                <div class="budget-item">
+                    <div>
+                        <span class="budget-item-name">Alcohol / Bar</span>
+                        <div style="font-size: 0.75rem; color: #666;">Beer/wine only saves; self-serve reduces cost</div>
+                    </div>
+                    <div style="text-align: right;">
+                        <span class="budget-item-cost">$800 - $1,500</span>
+                        <span class="budget-status pending">Pending</span>
+                    </div>
+                </div>
+
+                <div class="budget-item">
+                    <div>
+                        <span class="budget-item-name">Light Decorations</span>
+                        <div style="font-size: 0.75rem; color: #666;">String lights, lanterns, centerpieces</div>
+                    </div>
+                    <div style="text-align: right;">
+                        <span class="budget-item-cost">$200 - $500</span>
+                        <span class="budget-status pending">Pending</span>
+                    </div>
+                </div>
+
+                <div class="budget-item">
+                    <div>
+                        <span class="budget-item-name">Wedding Dress</span>
+                        <div style="font-size: 0.75rem; color: #666;">Includes alterations (~$150-300)</div>
+                    </div>
+                    <div style="text-align: right;">
+                        <span class="budget-item-cost">$800 - $2,000</span>
+                        <span class="budget-status pending">Pending</span>
+                    </div>
+                </div>
+
+                <div class="budget-item">
+                    <div>
+                        <span class="budget-item-name">Tailored Suit</span>
+                        <div style="font-size: 0.75rem; color: #666;">Custom or off-the-rack + tailoring</div>
+                    </div>
+                    <div style="text-align: right;">
+                        <span class="budget-item-cost">$400 - $800</span>
+                        <span class="budget-status pending">Pending</span>
+                    </div>
+                </div>
+
+                <div class="budget-item">
+                    <div>
+                        <span class="budget-item-name">Utensils / Plates</span>
+                        <div style="font-size: 0.75rem; color: #666;">Disposable upscale options; or rental</div>
+                    </div>
+                    <div style="text-align: right;">
+                        <span class="budget-item-cost">$100 - $200</span>
+                        <span class="budget-status pending">Pending</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="budget-total">
+                <div>
+                    <span class="budget-total-label">Estimated Total Range</span>
+                </div>
+                <div>
+                    <span class="budget-total-amount">$7,130 - $12,950</span>
+                </div>
+            </div>
+
+            <div class="section-divider"><span>✦</span></div>
+
+            <h3>Cost-Saving Tips</h3>
+            <div class="card-grid">
+                <div class="card hover-lift">
+                    <h4>Tent & Rentals</h4>
+                    <ul>
+                        <li>Bundle tent, tables & chairs for 10-15% off</li>
+                        <li>Mid-week pickup if allowed</li>
+                        <li>Compare at least 3 rental companies</li>
+                    </ul>
+                </div>
+                <div class="card burgundy-border hover-lift">
+                    <h4>Food</h4>
+                    <ul>
+                        <li>BBQ/taco bar/pasta buffet: $15-25/person</li>
+                        <li>Food trucks: $12-18/person</li>
+                        <li>Family signature dishes for appetizers</li>
+                    </ul>
+                </div>
+                <div class="card navy-border hover-lift">
+                    <h4>Alcohol</h4>
+                    <ul>
+                        <li>Beer & wine only saves 40%+</li>
+                        <li>Costco/Sam's (returnable unopened)</li>
+                        <li>Self-serve bar saves $150-300</li>
+                    </ul>
+                </div>
+                <div class="card hover-lift">
+                    <h4>Attire</h4>
+                    <ul>
+                        <li>Sample sales: 40-70% off</li>
+                        <li>BHLDN, Azazie, Lulus: $200-800</li>
+                        <li>Off-the-rack + tailoring for suit</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section-divider"><span>✦</span></div>
+
+            <h3>Vendor Tracker</h3>
+            <div class="vendor-grid">
+                <div class="vendor-card booked">
+                    <div class="vendor-type">Photography</div>
+                    <div class="vendor-name">Confirmed</div>
+                    <div class="vendor-cost">$1,200</div>
+                </div>
+                <div class="vendor-card">
+                    <div class="vendor-type">Tent Rental</div>
+                    <div class="vendor-name">—</div>
+                    <div class="vendor-cost">Get quotes</div>
+                </div>
+                <div class="vendor-card">
+                    <div class="vendor-type">Tables/Chairs</div>
+                    <div class="vendor-name">—</div>
+                    <div class="vendor-cost">Get quotes</div>
+                </div>
+                <div class="vendor-card">
+                    <div class="vendor-type">Catering</div>
+                    <div class="vendor-name">—</div>
+                    <div class="vendor-cost">Get quotes</div>
+                </div>
+                <div class="vendor-card">
+                    <div class="vendor-type">DJ</div>
+                    <div class="vendor-name">—</div>
+                    <div class="vendor-cost">Get quotes</div>
+                </div>
+                <div class="vendor-card">
+                    <div class="vendor-type">Alcohol</div>
+                    <div class="vendor-name">—</div>
+                    <div class="vendor-cost">Self-purchase</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Day-Of Timeline Section -->
+        <section id="timeline">
+            <h2>Day-Of Timeline</h2>
+            <p style="text-align: center; margin-bottom: 30px;">September 19, 2026 — A Saturday</p>
+
+            <div class="budget-card">
+                <div class="dayof-timeline">
+                    <div class="dayof-item">
+                        <span class="dayof-time">8:00 AM</span>
+                        <span class="dayof-event">Tent/rental delivery & setup begins</span>
+                    </div>
+                    <div class="dayof-item">
+                        <span class="dayof-time">10:00 AM</span>
+                        <span class="dayof-event">Decoration setup begins</span>
+                    </div>
+                    <div class="dayof-item">
+                        <span class="dayof-time">12:00 PM</span>
+                        <span class="dayof-event">Caterer arrives for prep</span>
+                    </div>
+                    <div class="dayof-item">
+                        <span class="dayof-time">2:00 PM</span>
+                        <span class="dayof-event">DJ setup & sound check</span>
+                    </div>
+                    <div class="dayof-item">
+                        <span class="dayof-time">3:00 PM</span>
+                        <span class="dayof-event">Photographer arrives</span>
+                    </div>
+                    <div class="dayof-item">
+                        <span class="dayof-time">4:00 PM</span>
+                        <span class="dayof-event">Wedding party ready</span>
+                    </div>
+                    <div class="dayof-item">
+                        <span class="dayof-time">4:30 PM</span>
+                        <span class="dayof-event">Guests arrive</span>
+                    </div>
+                    <div class="dayof-item highlight">
+                        <span class="dayof-time">5:00 PM</span>
+                        <span class="dayof-event"><strong>Ceremony</strong></span>
+                    </div>
+                    <div class="dayof-item">
+                        <span class="dayof-time">5:30 PM</span>
+                        <span class="dayof-event">Cocktail hour / Photos</span>
+                    </div>
+                    <div class="dayof-item">
+                        <span class="dayof-time">6:30 PM</span>
+                        <span class="dayof-event">Dinner service</span>
+                    </div>
+                    <div class="dayof-item highlight">
+                        <span class="dayof-time">7:30 PM</span>
+                        <span class="dayof-event"><strong>Toasts & cake</strong></span>
+                    </div>
+                    <div class="dayof-item highlight">
+                        <span class="dayof-time">8:00 PM</span>
+                        <span class="dayof-event"><strong>First dance / Dancing begins</strong></span>
+                    </div>
+                    <div class="dayof-item">
+                        <span class="dayof-time">10:00 PM</span>
+                        <span class="dayof-event">Last call</span>
+                    </div>
+                    <div class="dayof-item">
+                        <span class="dayof-time">10:30 PM</span>
+                        <span class="dayof-event">Send-off</span>
+                    </div>
+                    <div class="dayof-item">
+                        <span class="dayof-time">11:00 PM</span>
+                        <span class="dayof-event">Breakdown begins</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accent-box" style="margin-top: 30px;">
+                <h4>Weather Backup</h4>
+                <p>Tent sidewalls available for ~$100-200 extra if needed. Have a rain plan ready!</p>
+            </div>
+        </section>
+
+        <!-- Checklist Section -->
+        <section id="checklist">
+            <h2>Planning Timeline</h2>
+            <p style="text-align: center; margin-bottom: 10px;">Track your progress toward September 19, 2026</p>
+
+            <div class="todo-section">
+                <div class="todo-header">
+                    <h3 style="color: var(--navy);">Master Checklist</h3>
+                    <div class="todo-actions">
+                        <button class="todo-btn reset" onclick="resetChecklist()">Reset</button>
+                        <button class="todo-btn download" onclick="downloadChecklist()">Download</button>
+                    </div>
+                </div>
+
+                <div class="todo-progress">
+                    <div class="todo-progress-bar" id="progressBar" style="width: 0%"></div>
+                </div>
+                <p class="todo-progress-text"><span id="completedCount">0</span> of <span id="totalCount">0</span> tasks completed</p>
+
+                <!-- 12+ Months Out -->
+                <div class="timeline-milestone active">
+                    <div class="timeline-dot"></div>
+                    <div class="milestone-header">
+                        <h4 class="milestone-title">12+ Months Out</h4>
+                        <span class="milestone-date">Now - Sept 2025</span>
+                    </div>
+                    <div class="todo-item" data-id="1">
+                        <div class="todo-checkbox" onclick="toggleTodo(this)"></div>
+                        <span class="todo-text">Set overall budget</span>
+                    </div>
+                    <div class="todo-item" data-id="2">
+                        <div class="todo-checkbox" onclick="toggleTodo(this)"></div>
+                        <span class="todo-text">Choose ceremony and reception venue/location</span>
+                    </div>
+                    <div class="todo-item" data-id="3">
+                        <div class="todo-checkbox" onclick="toggleTodo(this)"></div>
+                        <span class="todo-text">Book photographer ($1,200 - CONFIRMED)</span>
+                    </div>
+                    <div class="todo-item" data-id="4">
+                        <div class="todo-checkbox" onclick="toggleTodo(this)"></div>
+                        <span class="todo-text">Start guest list</span>
+                    </div>
+                </div>
+
+                <!-- 9-12 Months Out -->
+                <div class="timeline-milestone">
+                    <div class="timeline-dot"></div>
+                    <div class="milestone-header">
+                        <h4 class="milestone-title">9-12 Months Out</h4>
+                        <span class="milestone-date">Sept - Dec 2025</span>
+                    </div>
+                    <div class="todo-item" data-id="5">
+                        <div class="todo-checkbox" onclick="toggleTodo(this)"></div>
+                        <span class="todo-text">Book DJ/entertainment</span>
+                    </div>
+                    <div class="todo-item" data-id="6">
+                        <div class="todo-checkbox" onclick="toggleTodo(this)"></div>
+                        <span class="todo-text">Book caterer/finalize food plan</span>
+                    </div>
+                    <div class="todo-item" data-id="7">
+                        <div class="todo-checkbox" onclick="toggleTodo(this)"></div>
+                        <span class="todo-text">Reserve pole tent rental</span>
+                    </div>
+                    <div class="todo-item" data-id="8">
+                        <div class="todo-checkbox" onclick="toggleTodo(this)"></div>
+                        <span class="todo-text">Reserve tables and chairs</span>
+                    </div>
+                    <div class="todo-item" data-id="9">
+                        <div class="todo-checkbox" onclick="toggleTodo(this)"></div>
+                        <span class="todo-text">Begin wedding dress shopping</span>
+                    </div>
+                    <div class="todo-item" data-id="10">
+                        <div class="todo-checkbox" onclick="toggleTodo(this)"></div>
+                        <span class="todo-text">Begin suit shopping / get measured</span>
+                    </div>
+                </div>
+
+                <!-- 6-9 Months Out -->
+                <div class="timeline-milestone">
+                    <div class="timeline-dot"></div>
+                    <div class="milestone-header">
+                        <h4 class="milestone-title">6-9 Months Out</h4>
+                        <span class="milestone-date">Dec 2025 - Mar 2026</span>
+                    </div>
+                    <div class="todo-item" data-id="11">
+                        <div class="todo-checkbox" onclick="toggleTodo(this)"></div>
+                        <span class="todo-text">Send save-the-dates</span>
+                    </div>
+                    <div class="todo-item" data-id="12">
+                        <div class="todo-checkbox" onclick="toggleTodo(this)"></div>
+                        <span class="todo-text">Plan alcohol/bar setup</span>
+                    </div>
+                    <div class="todo-item" data-id="13">
+                        <div class="todo-checkbox" onclick="toggleTodo(this)"></div>
+                        <span class="todo-text">Finalize decoration vision</span>
+                    </div>
+                    <div class="todo-item" data-id="14">
+                        <div class="todo-checkbox" onclick="toggleTodo(this)"></div>
+                        <span class="todo-text">Book any additional vendors</span>
+                    </div>
+                </div>
+
+                <!-- 3-6 Months Out -->
+                <div class="timeline-milestone">
+                    <div class="timeline-dot"></div>
+                    <div class="milestone-header">
+                        <h4 class="milestone-title">3-6 Months Out</h4>
+                        <span class="milestone-date">Mar - June 2026</span>
+                    </div>
+                    <div class="todo-item" data-id="15">
+                        <div class="todo-checkbox" onclick="toggleTodo(this)"></div>
+                        <span class="todo-text">Send invitations</span>
+                    </div>
+                    <div class="todo-item" data-id="16">
+                        <div class="todo-checkbox" onclick="toggleTodo(this)"></div>
+                        <span class="todo-text">Finalize menu with caterer</span>
+                    </div>
+                    <div class="todo-item" data-id="17">
+                        <div class="todo-checkbox" onclick="toggleTodo(this)"></div>
+                        <span class="todo-text">Order/purchase decorations</span>
+                    </div>
+                    <div class="todo-item" data-id="18">
+                        <div class="todo-checkbox" onclick="toggleTodo(this)"></div>
+                        <span class="todo-text">Confirm all vendor contracts</span>
+                    </div>
+                    <div class="todo-item" data-id="19">
+                        <div class="todo-checkbox" onclick="toggleTodo(this)"></div>
+                        <span class="todo-text">Order wedding dress (allow time for alterations)</span>
+                    </div>
+                    <div class="todo-item" data-id="20">
+                        <div class="todo-checkbox" onclick="toggleTodo(this)"></div>
+                        <span class="todo-text">Order/purchase suit</span>
+                    </div>
+                </div>
+
+                <!-- 1-3 Months Out -->
+                <div class="timeline-milestone">
+                    <div class="timeline-dot"></div>
+                    <div class="milestone-header">
+                        <h4 class="milestone-title">1-3 Months Out</h4>
+                        <span class="milestone-date">June - Aug 2026</span>
+                    </div>
+                    <div class="todo-item" data-id="21">
+                        <div class="todo-checkbox" onclick="toggleTodo(this)"></div>
+                        <span class="todo-text">Final guest count to caterer</span>
+                    </div>
+                    <div class="todo-item" data-id="22">
+                        <div class="todo-checkbox" onclick="toggleTodo(this)"></div>
+                        <span class="todo-text">Create seating chart</span>
+                    </div>
+                    <div class="todo-item" data-id="23">
+                        <div class="todo-checkbox" onclick="toggleTodo(this)"></div>
+                        <span class="todo-text">Confirm delivery/setup times with all vendors</span>
+                    </div>
+                    <div class="todo-item" data-id="24">
+                        <div class="todo-checkbox" onclick="toggleTodo(this)"></div>
+                        <span class="todo-text">Purchase alcohol</span>
+                    </div>
+                    <div class="todo-item" data-id="25">
+                        <div class="todo-checkbox" onclick="toggleTodo(this)"></div>
+                        <span class="todo-text">Final walkthrough with vendors</span>
+                    </div>
+                    <div class="todo-item" data-id="26">
+                        <div class="todo-checkbox" onclick="toggleTodo(this)"></div>
+                        <span class="todo-text">Wedding dress alterations / final fitting</span>
+                    </div>
+                    <div class="todo-item" data-id="27">
+                        <div class="todo-checkbox" onclick="toggleTodo(this)"></div>
+                        <span class="todo-text">Suit alterations / final fitting</span>
+                    </div>
+                </div>
+
+                <!-- Final Month -->
+                <div class="timeline-milestone">
+                    <div class="timeline-dot"></div>
+                    <div class="milestone-header">
+                        <h4 class="milestone-title">Final Month</h4>
+                        <span class="milestone-date">Aug - Sept 19, 2026</span>
+                    </div>
+                    <div class="todo-item" data-id="28">
+                        <div class="todo-checkbox" onclick="toggleTodo(this)"></div>
+                        <span class="todo-text">Confirm final headcount</span>
+                    </div>
+                    <div class="todo-item" data-id="29">
+                        <div class="todo-checkbox" onclick="toggleTodo(this)"></div>
+                        <span class="todo-text">Provide final payment to vendors</span>
+                    </div>
+                    <div class="todo-item" data-id="30">
+                        <div class="todo-checkbox" onclick="toggleTodo(this)"></div>
+                        <span class="todo-text">Create day-of timeline</span>
+                    </div>
+                    <div class="todo-item" data-id="31">
+                        <div class="todo-checkbox" onclick="toggleTodo(this)"></div>
+                        <span class="todo-text">Assign setup/breakdown helpers</span>
+                    </div>
+                    <div class="todo-item" data-id="32">
+                        <div class="todo-checkbox" onclick="toggleTodo(this)"></div>
+                        <span class="todo-text">Rehearsal (if needed)</span>
+                    </div>
+                </div>
+
+                <!-- Week Of -->
+                <div class="timeline-milestone">
+                    <div class="timeline-dot"></div>
+                    <div class="milestone-header">
+                        <h4 class="milestone-title">Week Of</h4>
+                        <span class="milestone-date">Final countdown!</span>
+                    </div>
+                    <div class="todo-item" data-id="33">
+                        <div class="todo-checkbox" onclick="toggleTodo(this)"></div>
+                        <span class="todo-text">Confirm all deliveries</span>
+                    </div>
+                    <div class="todo-item" data-id="34">
+                        <div class="todo-checkbox" onclick="toggleTodo(this)"></div>
+                        <span class="todo-text">Prepare vendor tips/final payments</span>
+                    </div>
+                    <div class="todo-item" data-id="35">
+                        <div class="todo-checkbox" onclick="toggleTodo(this)"></div>
+                        <span class="todo-text">Delegate day-of responsibilities</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 10px;">Aaron & Kelly</p>
+        <p style="margin-bottom: 15px;">September 19, 2026</p>
+        <div style="display: flex; justify-content: center; gap: 12px; margin-top: 15px;">
+            <span style="width: 12px; height: 12px; background: #B87333; border-radius: 50%; display: inline-block;"></span>
+            <span style="width: 12px; height: 12px; background: #800020; border-radius: 50%; display: inline-block;"></span>
+            <span style="width: 12px; height: 12px; background: #1B2838; border-radius: 50%; display: inline-block;"></span>
+            <span style="width: 12px; height: 12px; background: #2C2C2C; border-radius: 50%; display: inline-block;"></span>
+        </div>
+        <p style="margin-top: 20px; font-size: 0.75rem; opacity: 0.6;">A Rustic Woodland Celebration</p>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+        <span class="lightbox-close" onclick="closeLightbox(event)">&times;</span>
+        <img id="lightbox-img" src="" alt="">
+        <div class="lightbox-caption">
+            <h4 id="lightbox-title"></h4>
+            <p id="lightbox-desc"></p>
+        </div>
+    </div>
+
+    <script>
+        // Countdown Timer
+        const weddingDate = new Date('September 19, 2026 17:00:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+
+            if (distance < 0) {
+                document.getElementById('countdown').innerHTML = '<p style="font-size: 1.5rem; color: var(--copper-light);">The big day is here!</p>';
+            }
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Lightbox functionality
+        function openLightbox(element) {
+            const img = element.querySelector('img');
+            const title = element.querySelector('h4').textContent;
+            const desc = element.querySelector('.overlay p').textContent;
+
+            document.getElementById('lightbox-img').src = img.dataset.full || img.src;
+            document.getElementById('lightbox-title').textContent = title;
+            document.getElementById('lightbox-desc').textContent = desc;
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox(event) {
+            if (event.target.classList.contains('lightbox') || event.target.classList.contains('lightbox-close')) {
+                document.getElementById('lightbox').classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Close on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.getElementById('lightbox').classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Load saved state on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadChecklist();
+            updateProgress();
+        });
+
+        // Toggle individual todo item
+        function toggleTodo(checkbox) {
+            checkbox.classList.toggle('checked');
+            const textEl = checkbox.nextElementSibling;
+            textEl.classList.toggle('completed');
+            saveChecklist();
+            updateProgress();
+        }
+
+        // Update progress bar
+        function updateProgress() {
+            const total = document.querySelectorAll('.todo-item').length;
+            const completed = document.querySelectorAll('.todo-checkbox.checked').length;
+            const percentage = total > 0 ? (completed / total) * 100 : 0;
+
+            document.getElementById('progressBar').style.width = percentage + '%';
+            document.getElementById('completedCount').textContent = completed;
+            document.getElementById('totalCount').textContent = total;
+        }
+
+        // Save checklist state to localStorage
+        function saveChecklist() {
+            const items = document.querySelectorAll('.todo-item');
+            const state = {};
+            items.forEach(item => {
+                const id = item.dataset.id;
+                const isChecked = item.querySelector('.todo-checkbox').classList.contains('checked');
+                state[id] = isChecked;
+            });
+            localStorage.setItem('weddingChecklist', JSON.stringify(state));
+        }
+
+        // Load checklist state from localStorage
+        function loadChecklist() {
+            const saved = localStorage.getItem('weddingChecklist');
+            if (saved) {
+                const state = JSON.parse(saved);
+                Object.keys(state).forEach(id => {
+                    if (state[id]) {
+                        const item = document.querySelector(`.todo-item[data-id="${id}"]`);
+                        if (item) {
+                            item.querySelector('.todo-checkbox').classList.add('checked');
+                            item.querySelector('.todo-text').classList.add('completed');
+                        }
+                    }
+                });
+            }
+        }
+
+        // Reset all checkboxes
+        function resetChecklist() {
+            if (confirm('Are you sure you want to reset all checkboxes?')) {
+                document.querySelectorAll('.todo-checkbox').forEach(cb => {
+                    cb.classList.remove('checked');
+                });
+                document.querySelectorAll('.todo-text').forEach(text => {
+                    text.classList.remove('completed');
+                });
+                localStorage.removeItem('weddingChecklist');
+                updateProgress();
+            }
+        }
+
+        // Download checklist as text file
+        function downloadChecklist() {
+            const categories = document.querySelectorAll('.todo-category');
+            let content = 'CAROLINA WOODLAND WEDDING - PLANNING CHECKLIST\n';
+            content += '═══════════════════════════════════════════════\n\n';
+
+            categories.forEach(category => {
+                const title = category.querySelector('h4').textContent;
+                content += title.toUpperCase() + '\n';
+                content += '─'.repeat(title.length) + '\n';
+
+                const items = category.querySelectorAll('.todo-item');
+                items.forEach(item => {
+                    const isChecked = item.querySelector('.todo-checkbox').classList.contains('checked');
+                    const text = item.querySelector('.todo-text').textContent;
+                    content += (isChecked ? '[x] ' : '[ ] ') + text + '\n';
+                });
+                content += '\n';
+            });
+
+            const total = document.querySelectorAll('.todo-item').length;
+            const completed = document.querySelectorAll('.todo-checkbox.checked').length;
+            content += '═══════════════════════════════════════════════\n';
+            content += `Progress: ${completed}/${total} tasks completed (${Math.round((completed/total)*100)}%)\n`;
+            content += '═══════════════════════════════════════════════\n';
+
+            // Create and trigger download
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'wedding-checklist.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+
+</body>
+</html>

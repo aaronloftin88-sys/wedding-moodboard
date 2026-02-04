@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest List | Aaron & Kelly Wedding</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --copper: #B87333;
+            --copper-light: #D4956A;
+            --burgundy: #800020;
+            --burgundy-light: #A0324F;
+            --navy: #1B2838;
+            --navy-light: #2C3E50;
+            --black: #2C2C2C;
+            --cream: #FDF8F3;
+            --cream-dark: #F5EDE4;
+            --sage: #9CAF88;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            color: var(--black);
+            background: var(--cream);
+            line-height: 1.7;
+            font-size: 16px;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--cream);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: var(--copper-light);
+            text-decoration: none;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: opacity 0.3s;
+        }
+
+        .back-link:hover {
+            opacity: 0.7;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: white;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .stats {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            color: var(--navy);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #666;
+        }
+
+        .stat.highlight .stat-number {
+            color: var(--copper);
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: var(--copper);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--copper-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--navy);
+            border: 1px solid var(--navy);
+        }
+
+        .btn-secondary:hover {
+            background: var(--navy);
+            color: white;
+        }
+
+        .btn-danger {
+            background: transparent;
+            color: var(--burgundy);
+            border: 1px solid var(--burgundy);
+        }
+
+        .btn-danger:hover {
+            background: var(--burgundy);
+            color: white;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        /* Add Guest Form */
+        .add-guest-form {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+
+        .add-guest-form h3 {
+            color: var(--navy);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .form-group {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--cream-dark);
+            border-radius: 6px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--copper);
+        }
+
+        .form-actions {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+        }
+
+        /* Guest Table */
+        .guest-table-wrapper {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        .table-header {
+            padding: 20px 25px;
+            border-bottom: 1px solid var(--cream-dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .table-header h3 {
+            color: var(--navy);
+            font-size: 1.3rem;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            padding: 10px 15px 10px 40px;
+            border: 1px solid var(--cream-dark);
+            border-radius: 25px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            width: 250px;
+            transition: border-color 0.3s, width 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--copper);
+            width: 300px;
+        }
+
+        .search-box::before {
+            content: '🔍';
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.9rem;
+            opacity: 0.5;
+        }
+
+        .guest-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .guest-table th {
+            background: var(--navy);
+            color: var(--cream);
+            padding: 15px 20px;
+            text-align: left;
+            font-weight: 500;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .guest-table th.center {
+            text-align: center;
+        }
+
+        .guest-table td {
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--cream-dark);
+            vertical-align: middle;
+        }
+
+        .guest-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .guest-table tr:hover {
+            background: var(--cream);
+        }
+
+        .guest-name {
+            font-weight: 400;
+            color: var(--navy);
+        }
+
+        .guest-group {
+            font-size: 0.75rem;
+            color: #666;
+            margin-top: 3px;
+        }
+
+        /* Checkbox Styling */
+        .checkbox-cell {
+            text-align: center;
+        }
+
+        .custom-checkbox {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            background: white;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .custom-checkbox:hover {
+            border-color: var(--copper);
+        }
+
+        .custom-checkbox.checked {
+            background: var(--copper);
+            border-color: var(--copper);
+        }
+
+        .custom-checkbox.checked::after {
+            content: '';
+            width: 6px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            margin-bottom: 2px;
+        }
+
+        /* RSVP Status */
+        .rsvp-status {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 500;
+        }
+
+        .rsvp-pending {
+            background: var(--cream-dark);
+            color: #666;
+        }
+
+        .rsvp-yes {
+            background: var(--sage);
+            color: white;
+        }
+
+        .rsvp-no {
+            background: var(--burgundy-light);
+            color: white;
+        }
+
+        /* Actions */
+        .row-actions {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .row-btn {
+            width: 30px;
+            height: 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            background: var(--cream);
+        }
+
+        .row-btn:hover {
+            background: var(--cream-dark);
+        }
+
+        .row-btn.delete:hover {
+            background: var(--burgundy);
+            color: white;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+        }
+
+        .empty-state h3 {
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: var(--cream);
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .stats {
+                gap: 15px;
+            }
+
+            .stat-number {
+                font-size: 1.4rem;
+            }
+
+            .search-box input {
+                width: 200px;
+            }
+
+            .search-box input:focus {
+                width: 200px;
+            }
+
+            .guest-table {
+                font-size: 0.85rem;
+            }
+
+            .guest-table th, .guest-table td {
+                padding: 12px 10px;
+            }
+
+            .form-group {
+                min-width: 100%;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .stats-bar, .add-guest-form, .search-box, .row-actions, .actions, .back-link {
+                display: none !important;
+            }
+
+            .guest-table-wrapper {
+                box-shadow: none;
+            }
+
+            .custom-checkbox.checked::after {
+                content: '✓';
+                border: none;
+                transform: none;
+                margin: 0;
+                color: black;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header" style="position: relative;">
+        <a href="mood-board.html" class="back-link">← Back to Mood Board</a>
+        <h1>Guest List</h1>
+        <p>September 19, 2026 — Track RSVPs and mailings</p>
+    </header>
+
+    <div class="stats-bar">
+        <div class="stats-container">
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number" id="totalGuests">0</div>
+                    <div class="stat-label">Total Guests</div>
+                </div>
+                <div class="stat highlight">
+                    <div class="stat-number" id="rsvpYes">0</div>
+                    <div class="stat-label">Attending</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" id="rsvpNo">0</div>
+                    <div class="stat-label">Declined</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" id="rsvpPending">0</div>
+                    <div class="stat-label">Pending</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" id="saveTheDateSent">0</div>
+                    <div class="stat-label">STD Sent</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" id="inviteSent">0</div>
+                    <div class="stat-label">Invited</div>
+                </div>
+            </div>
+            <div class="actions">
+                <button class="btn btn-secondary" onclick="exportGuests()">Export CSV</button>
+                <button class="btn btn-primary" onclick="toggleAddForm()">+ Add Guest</button>
+            </div>
+        </div>
+    </div>
+
+    <main class="container">
+        <!-- Add Guest Form -->
+        <div class="add-guest-form" id="addGuestForm" style="display: none;">
+            <h3>Add New Guest</h3>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Guest Name *</label>
+                    <input type="text" id="guestName" placeholder="First and Last Name">
+                </div>
+                <div class="form-group">
+                    <label>Group / Party</label>
+                    <input type="text" id="guestGroup" placeholder="e.g., Family, College Friends">
+                </div>
+                <div class="form-group">
+                    <label>Plus One?</label>
+                    <select id="plusOne">
+                        <option value="no">No</option>
+                        <option value="yes">Yes</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button class="btn btn-primary" onclick="addGuest()">Add Guest</button>
+                <button class="btn btn-secondary" onclick="toggleAddForm()">Cancel</button>
+            </div>
+        </div>
+
+        <!-- Guest Table -->
+        <div class="guest-table-wrapper">
+            <div class="table-header">
+                <h3>All Guests</h3>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search guests..." oninput="filterGuests()">
+                </div>
+            </div>
+
+            <table class="guest-table">
+                <thead>
+                    <tr>
+                        <th>Guest Name</th>
+                        <th class="center">Save the Date</th>
+                        <th class="center">Invitation</th>
+                        <th class="center">RSVP</th>
+                        <th class="center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="guestTableBody">
+                    <!-- Guests will be inserted here -->
+                </tbody>
+            </table>
+
+            <div class="empty-state" id="emptyState">
+                <h3>No guests yet</h3>
+                <p>Click "Add Guest" to start building your guest list</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem;">Aaron & Kelly</p>
+        <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 5px;">September 19, 2026</p>
+    </footer>
+
+    <script>
+        // Guest data structure
+        let guests = [];
+
+        // Default guest list (pre-populated)
+        const defaultGuests = [
+            { name: "Carma & Aaron Loftin", group: "Family" },
+            { name: "Ashton & Christopher Johnson", group: "Family" },
+            { name: "Mama Judy Loftin", group: "Family" },
+            { name: "Mama Cindy & Doug Daniels", group: "Family" },
+            { name: "Holly & Douglas Daniels", group: "Family" },
+            { name: "Jessica & Cory", group: "Family" },
+            { name: "Dawn Arnet", group: "Family" },
+            { name: "Joey & Ashley Arnet", group: "Family" },
+            { name: "Chickie Stewart", group: "Family" },
+            { name: "James Dolce", group: "Family" },
+            { name: "Kassi & Tyler Lachapelle", group: "Family" },
+            { name: "Aunt Tootie Ciancio", group: "Family" },
+            { name: "Jesse & Alex", group: "Family" },
+            { name: "Uncle Dave & Deb", group: "Family" },
+            { name: "Amanda Hallet", group: "Friends" },
+            { name: "Kristi", group: "Friends" },
+            { name: "Jonise & Aaron Caccamise", group: "Friends" },
+            { name: "Amanda & Pat Kent", group: "Friends" },
+            { name: "Jordan Greene", group: "Friends" },
+            { name: "Maggie Honeycutt", group: "Friends" },
+            { name: "Courtney & Slater Mitchell", group: "Friends" },
+            { name: "Nick Valentine", group: "Friends" },
+            { name: "Keaton Tobin", group: "Friends" },
+            { name: "Heather Dorch", group: "Friends" },
+            { name: "Dara Thomas", group: "Friends" },
+            { name: "Jimmy & Jean Jenson", group: "Friends" },
+            { name: "Beth & Zach Reeves", group: "Friends" },
+            { name: "Kristin & Chris", group: "Friends" },
+            { name: "Nisey", group: "Friends" },
+            { name: "Crystal Sentell", group: "Friends" },
+            { name: "Lisa Weaver", group: "Friends" },
+            { name: "Deena & Herb", group: "Friends" },
+            { name: "Anna & Melenie Leasure", group: "Friends" },
+            { name: "Amber & Chris Payton", group: "Friends" },
+            { name: "Blake Duke", group: "Friends" },
+            { name: "Isaac Snyder", group: "Friends" },
+            { name: "Daphne Chandler & Keith", group: "Friends" },
+            { name: "Allen Loftin", group: "Family" },
+            { name: "Haylea Blank", group: "Friends" },
+            { name: "Wanda & Paul", group: "Family" },
+            { name: "Erin & Brandon Grant", group: "Friends" },
+            { name: "Robert Early", group: "Friends" },
+            { name: "Tyler & Sarah Smith", group: "Friends" },
+            { name: "Candi Payne", group: "Friends" },
+            { name: "Ashton Belangia", group: "Friends" },
+            { name: "Eddie & Gloria Brinkley", group: "Friends" },
+            { name: "Jeremy Hedrick", group: "Friends" },
+            { name: "Mike & Joanna Sowers", group: "Friends" },
+            { name: "Nick Byerly", group: "Friends" },
+            { name: "Steve Byerly", group: "Friends" },
+            { name: "Vicky", group: "Friends" },
+            { name: "Joey Stevens", group: "Friends" },
+            { name: "Bobby House", group: "Friends" },
+            { name: "Scotty Hughes", group: "Friends" },
+            { name: "Tony Hide", group: "Friends" },
+            { name: "Geremy Eubanks", group: "Friends" },
+            { name: "Daniel Livingood", group: "Friends" },
+            { name: "Dustin Gordon", group: "Friends" },
+            { name: "Andy Bullins", group: "Friends" },
+            { name: "Justin Snyder", group: "Friends" },
+            { name: "Quinton Penley", group: "Friends" },
+            { name: "Leith & Terri Goodman", group: "Friends" },
+            { name: "Carlie & Deb Mitchell", group: "Friends" }
+        ];
+
+        // Load guests from localStorage
+        function loadGuests() {
+            const saved = localStorage.getItem('weddingGuests');
+            if (saved) {
+                guests = JSON.parse(saved);
+            } else {
+                // Seed with default guest list
+                guests = defaultGuests.map((g, index) => ({
+                    id: Date.now() + index,
+                    name: g.name,
+                    group: g.group,
+                    plusOne: false,
+                    saveTheDate: false,
+                    invitation: false,
+                    rsvp: 'pending'
+                }));
+                saveGuests();
+            }
+            renderGuests();
+            updateStats();
+        }
+
+        // Save guests to localStorage
+        function saveGuests() {
+            localStorage.setItem('weddingGuests', JSON.stringify(guests));
+        }
+
+        // Toggle add guest form
+        function toggleAddForm() {
+            const form = document.getElementById('addGuestForm');
+            form.style.display = form.style.display === 'none' ? 'block' : 'none';
+            if (form.style.display === 'block') {
+                document.getElementById('guestName').focus();
+            }
+        }
+
+        // Add new guest
+        function addGuest() {
+            const name = document.getElementById('guestName').value.trim();
+            const group = document.getElementById('guestGroup').value.trim();
+            const plusOne = document.getElementById('plusOne').value;
+
+            if (!name) {
+                alert('Please enter a guest name');
+                return;
+            }
+
+            const guest = {
+                id: Date.now(),
+                name: name,
+                group: group,
+                plusOne: plusOne === 'yes',
+                saveTheDate: false,
+                invitation: false,
+                rsvp: 'pending' // pending, yes, no
+            };
+
+            guests.push(guest);
+            saveGuests();
+            renderGuests();
+            updateStats();
+
+            // Clear form
+            document.getElementById('guestName').value = '';
+            document.getElementById('guestGroup').value = '';
+            document.getElementById('plusOne').value = 'no';
+            toggleAddForm();
+        }
+
+        // Delete guest
+        function deleteGuest(id) {
+            if (confirm('Remove this guest from the list?')) {
+                guests = guests.filter(g => g.id !== id);
+                saveGuests();
+                renderGuests();
+                updateStats();
+            }
+        }
+
+        // Toggle checkbox
+        function toggleCheck(id, field) {
+            const guest = guests.find(g => g.id === id);
+            if (guest) {
+                guest[field] = !guest[field];
+                saveGuests();
+                renderGuests();
+                updateStats();
+            }
+        }
+
+        // Cycle RSVP status
+        function cycleRsvp(id) {
+            const guest = guests.find(g => g.id === id);
+            if (guest) {
+                const states = ['pending', 'yes', 'no'];
+                const currentIndex = states.indexOf(guest.rsvp);
+                guest.rsvp = states[(currentIndex + 1) % states.length];
+                saveGuests();
+                renderGuests();
+                updateStats();
+            }
+        }
+
+        // Escape HTML to prevent XSS attacks
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Render guest table
+        function renderGuests(filteredList = null) {
+            const tbody = document.getElementById('guestTableBody');
+            const emptyState = document.getElementById('emptyState');
+            const guestsToRender = filteredList || guests;
+
+            if (guests.length === 0) {
+                tbody.innerHTML = '';
+                emptyState.style.display = 'block';
+                return;
+            }
+
+            emptyState.style.display = 'none';
+
+            tbody.innerHTML = guestsToRender.map(guest => `
+                <tr>
+                    <td>
+                        <div class="guest-name">${escapeHtml(guest.name)}${guest.plusOne ? ' (+1)' : ''}</div>
+                        ${guest.group ? `<div class="guest-group">${escapeHtml(guest.group)}</div>` : ''}
+                    </td>
+                    <td class="checkbox-cell">
+                        <div class="custom-checkbox ${guest.saveTheDate ? 'checked' : ''}"
+                             onclick="toggleCheck(${guest.id}, 'saveTheDate')"></div>
+                    </td>
+                    <td class="checkbox-cell">
+                        <div class="custom-checkbox ${guest.invitation ? 'checked' : ''}"
+                             onclick="toggleCheck(${guest.id}, 'invitation')"></div>
+                    </td>
+                    <td class="checkbox-cell">
+                        <span class="rsvp-status rsvp-${guest.rsvp}" onclick="cycleRsvp(${guest.id})" style="cursor: pointer;">
+                            ${guest.rsvp === 'pending' ? 'Pending' : guest.rsvp === 'yes' ? 'Attending' : 'Declined'}
+                        </span>
+                    </td>
+                    <td>
+                        <div class="row-actions">
+                            <button class="row-btn delete" onclick="deleteGuest(${guest.id})" title="Remove">✕</button>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        // Filter guests by search
+        function filterGuests() {
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = guests.filter(g =>
+                g.name.toLowerCase().includes(search) ||
+                (g.group && g.group.toLowerCase().includes(search))
+            );
+            renderGuests(filtered);
+        }
+
+        // Update stats
+        function updateStats() {
+            document.getElementById('totalGuests').textContent = guests.length;
+            document.getElementById('rsvpYes').textContent = guests.filter(g => g.rsvp === 'yes').length;
+            document.getElementById('rsvpNo').textContent = guests.filter(g => g.rsvp === 'no').length;
+            document.getElementById('rsvpPending').textContent = guests.filter(g => g.rsvp === 'pending').length;
+            document.getElementById('saveTheDateSent').textContent = guests.filter(g => g.saveTheDate).length;
+            document.getElementById('inviteSent').textContent = guests.filter(g => g.invitation).length;
+        }
+
+        // Export to CSV
+        function exportGuests() {
+            if (guests.length === 0) {
+                alert('No guests to export');
+                return;
+            }
+
+            const headers = ['Name', 'Group', 'Plus One', 'Save the Date Sent', 'Invitation Sent', 'RSVP Status'];
+            const rows = guests.map(g => [
+                g.name,
+                g.group || '',
+                g.plusOne ? 'Yes' : 'No',
+                g.saveTheDate ? 'Yes' : 'No',
+                g.invitation ? 'Yes' : 'No',
+                g.rsvp === 'yes' ? 'Attending' : g.rsvp === 'no' ? 'Declined' : 'Pending'
+            ]);
+
+            const csv = [headers, ...rows].map(row => row.map(cell => `"${cell}"`).join(',')).join('\n');
+
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'wedding-guest-list.csv';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // Handle Enter key in form
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && document.getElementById('addGuestForm').style.display !== 'none') {
+                addGuest();
+            }
+        });
+
+        // Initialize
+        loadGuests();
+    </script>
+
+</body>
+</html>
