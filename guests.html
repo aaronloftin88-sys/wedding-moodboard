@@ -524,9 +524,13 @@
     <div class="stats-bar">
         <div class="stats-container">
             <div class="stats">
+                <div class="stat highlight">
+                    <div class="stat-number" id="totalHeadcount">0</div>
+                    <div class="stat-label">Headcount</div>
+                </div>
                 <div class="stat">
                     <div class="stat-number" id="totalGuests">0</div>
-                    <div class="stat-label">Total Guests</div>
+                    <div class="stat-label">Entries</div>
                 </div>
                 <div class="stat highlight">
                     <div class="stat-number" id="rsvpYes">0</div>
@@ -695,6 +699,17 @@
             { name: "Carlie & Deb Mitchell", group: "Friends" }
         ];
 
+        // Check if name represents a couple (contains &)
+        function isCouple(name) {
+            return name.includes('&');
+        }
+
+        // Get headcount for a guest entry
+        function getHeadcount(guest) {
+            // Couples (&) = 2 people, Singles = 1 + their +1 = 2
+            return isCouple(guest.name) ? 2 : (guest.plusOne ? 2 : 1);
+        }
+
         // Load guests from localStorage
         function loadGuests() {
             const saved = localStorage.getItem('weddingGuests');
@@ -702,11 +717,12 @@
                 guests = JSON.parse(saved);
             } else {
                 // Seed with default guest list
+                // Names with & are couples (2 people), names without get a +1
                 guests = defaultGuests.map((g, index) => ({
                     id: Date.now() + index,
                     name: g.name,
                     group: g.group,
-                    plusOne: false,
+                    plusOne: !isCouple(g.name), // Singles get +1, couples don't
                     saveTheDate: false,
                     invitation: false,
                     rsvp: 'pending'
@@ -735,18 +751,23 @@
         function addGuest() {
             const name = document.getElementById('guestName').value.trim();
             const group = document.getElementById('guestGroup').value.trim();
-            const plusOne = document.getElementById('plusOne').value;
+            const plusOneSelect = document.getElementById('plusOne').value;
 
             if (!name) {
                 alert('Please enter a guest name');
                 return;
             }
 
+            // Auto-detect: couples (&) don't need +1, singles get +1 by default
+            // But allow manual override via the dropdown
+            const autoDetectPlusOne = !isCouple(name);
+            const plusOne = plusOneSelect === 'yes' ? true : (plusOneSelect === 'no' ? false : autoDetectPlusOne);
+
             const guest = {
                 id: Date.now(),
                 name: name,
                 group: group,
-                plusOne: plusOne === 'yes',
+                plusOne: plusOne,
                 saveTheDate: false,
                 invitation: false,
                 rsvp: 'pending' // pending, yes, no
@@ -863,10 +884,19 @@
 
         // Update stats
         function updateStats() {
+            // Calculate total headcount (couples = 2, singles with +1 = 2)
+            const totalHeadcount = guests.reduce((sum, g) => sum + getHeadcount(g), 0);
+
+            // Calculate headcount for each RSVP status
+            const attendingHeadcount = guests.filter(g => g.rsvp === 'yes').reduce((sum, g) => sum + getHeadcount(g), 0);
+            const declinedHeadcount = guests.filter(g => g.rsvp === 'no').reduce((sum, g) => sum + getHeadcount(g), 0);
+            const pendingHeadcount = guests.filter(g => g.rsvp === 'pending').reduce((sum, g) => sum + getHeadcount(g), 0);
+
+            document.getElementById('totalHeadcount').textContent = totalHeadcount;
             document.getElementById('totalGuests').textContent = guests.length;
-            document.getElementById('rsvpYes').textContent = guests.filter(g => g.rsvp === 'yes').length;
-            document.getElementById('rsvpNo').textContent = guests.filter(g => g.rsvp === 'no').length;
-            document.getElementById('rsvpPending').textContent = guests.filter(g => g.rsvp === 'pending').length;
+            document.getElementById('rsvpYes').textContent = attendingHeadcount;
+            document.getElementById('rsvpNo').textContent = declinedHeadcount;
+            document.getElementById('rsvpPending').textContent = pendingHeadcount;
             document.getElementById('saveTheDateSent').textContent = guests.filter(g => g.saveTheDate).length;
             document.getElementById('inviteSent').textContent = guests.filter(g => g.invitation).length;
         }
